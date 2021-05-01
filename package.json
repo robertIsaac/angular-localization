@@ -25,6 +25,8 @@
     "@angular/platform-server": "~11.2.12",
     "@angular/router": "~11.2.12",
     "@nguniversal/express-engine": "^11.2.1",
+    "@ngx-translate/core": "^13.0.0",
+    "@ngx-translate/http-loader": "^6.0.0",
     "bootstrap": "^5.0.0-beta3",
     "express": "^4.15.2",
     "ngx-bootstrap": "^6.2.0",
