@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -8,16 +10,27 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent implements OnInit {
   isCollapsed = true;
-  locales = ['en', 'fr', 'ar'];
+  locales = this.localizeRouterService.parser.locales;
+  currentUrl = '';
 
   constructor(
-    private translateService: TranslateService,
+    private localizeRouterService: LocalizeRouterService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
+    this.setCurrentUrl();
+
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+    ).subscribe(() => {
+      this.setCurrentUrl();
+    });
   }
 
-  changeLanguage(locale: string): void {
-    this.translateService.use(locale);
+  private setCurrentUrl(): void {
+    this.currentUrl = this.router.url
+      .replace('/' + this.localizeRouterService.parser.currentLang, '')
+      .split('?')[0];
   }
 }

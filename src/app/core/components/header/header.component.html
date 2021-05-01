@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a [routerLink]="'/home'" class="navbar-brand">Localize</a>
+    <a [routerLink]="'/home' | localize" class="navbar-brand">Localize</a>
     <button
       (click)="isCollapsed = !isCollapsed"
       [attr.aria-expanded]="!isCollapsed"
@@ -15,7 +15,7 @@
         <li class="nav-item">
           <a
             [routerLinkActiveOptions]="{exact: true}"
-            [routerLink]="'/home'"
+            [routerLink]="'/home' | localize"
             aria-current="page"
             class="nav-link"
             routerLinkActive="active">{{'HOMEPAGE' | translate}}</a>
@@ -24,7 +24,7 @@
         <li class="nav-item">
           <a
             [routerLinkActiveOptions]="{exact: true}"
-            [routerLink]="'/feature'"
+            [routerLink]="'/feature' | localize"
             class="nav-link"
             routerLinkActive="active">{{'FEATURE' | translate}}</a>
         </li>
@@ -45,9 +45,9 @@
             <li *ngFor="let locale of locales">
               <a
                 class="dropdown-item"
-                role="button"
-                (click)="changeLanguage(locale)"
-                >
+                queryParamsHandling="merge"
+                routerLink="/{{locale}}/{{currentUrl}}"
+                routerLinkActive="active">
                 {{locale}}
               </a>
             </li>
