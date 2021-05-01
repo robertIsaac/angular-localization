@@ -29,6 +29,31 @@
             routerLinkActive="active">{{'FEATURE' | translate}}</a>
         </li>
       </ul>
+
+      <ul class="navbar-nav language-dropdown">
+        <li class="nav-item dropdown" dropdown>
+          <a
+            aria-expanded="false"
+            class="nav-link dropdown-toggle"
+            data-bs-toggle="dropdown"
+            dropdownToggle
+            id="navbarDropdown"
+            role="button">
+            {{'CHANGE_LANGUAGE' | translate}}
+          </a>
+          <ul *dropdownMenu aria-labelledby="navbarDropdown" class="dropdown-menu">
+            <li *ngFor="let locale of locales">
+              <a
+                class="dropdown-item"
+                role="button"
+                (click)="changeLanguage(locale)"
+                >
+                {{locale}}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

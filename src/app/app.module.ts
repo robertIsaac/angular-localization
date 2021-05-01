@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { translateBrowserLoaderFactory } from './core/utils/translate-browser.loader';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { translateBrowserLoaderFactory } from './core/utils/translate-browser.lo
     BrowserAnimationsModule,
     HttpClientModule,
     CollapseModule.forRoot(),
+    BsDropdownModule.forRoot(),
     TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
