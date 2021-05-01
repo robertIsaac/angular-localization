@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, BrowserTransferStateModule, TransferState } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/components/header/header.component';
@@ -20,6 +20,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    BrowserTransferStateModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
     TranslateModule.forRoot({
@@ -27,7 +28,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
       loader: {
         provide: TranslateLoader,
         useFactory: translateBrowserLoaderFactory,
-        deps: [HttpClient]
+        deps: [HttpClient, TransferState]
       }
     }),
   ],
