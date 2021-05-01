@@ -1,5 +1,10 @@
 :host {
   .language-dropdown {
     margin-left: auto;
+
+    [dir=rtl] & {
+      margin-left: unset;
+      margin-right: auto;
+    }
   }
 }

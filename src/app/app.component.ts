@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'localize';
+  constructor(
+    private translateService: TranslateService,
+    @Inject(DOCUMENT) private document: Document,
+  ) {
+    this.translateService.stream('DIR').subscribe(dir => {
+      this.directionChanged(dir);
+    });
+  }
+
+  private directionChanged(dir: string): void {
+    const htmlTag = this.document.getElementsByTagName('html')[0] as HTMLHtmlElement;
+    htmlTag.dir = dir === 'rtl' ? 'rtl' : 'ltr';
+    this.changeCssFile(dir);
+  }
+
+  private changeCssFile(dir: string): void {
+    const headTag = this.document.getElementsByTagName('head')[0] as HTMLHeadElement;
+    const existingLink = this.document.getElementById('bootstrap-css') as HTMLLinkElement;
+    const bundleName = dir === 'rtl' ? 'bootstrap.rtl.min.css' : 'bootstrap.min.css';
+
+    if (existingLink) {
+      existingLink.href = bundleName;
+    } else {
+      const newLink = this.document.createElement('link');
+      newLink.rel = 'stylesheet';
+      newLink.id = 'bootstrap-css';
+      newLink.href = bundleName;
+      headTag.appendChild(newLink);
+    }
+  }
 }
