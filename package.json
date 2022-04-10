@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "dev:ssr": "ng run localize:serve-ssr",
     "serve:ssr": "node dist/localize/server/main.js",
-    "build:ssr": "ng build --prod && ng run localize:server:production",
+    "build:ssr": "ng build --configuration production && ng run localize:server:production",
     "prerender": "ng run localize:prerender"
   },
   "private": true,
