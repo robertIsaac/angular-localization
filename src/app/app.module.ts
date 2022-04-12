@@ -13,6 +13,14 @@ import { LocalizeParser, LocalizeRouterModule, LocalizeRouterSettings } from '@g
 import { localizeBrowserLoaderFactory } from './core/utils/localize-browser.loader';
 import { Location } from '@angular/common';
 
+export const defaultLangFunction = (languages: string[], cachedLang?: string): string => {
+  if (cachedLang && languages.includes(cachedLang)) {
+    return cachedLang;
+  } else {
+    return 'ar';
+  }
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,9 +49,11 @@ import { Location } from '@angular/common';
         deps: [TranslateService, Location, LocalizeRouterSettings, HttpClient, TransferState],
       },
       initialNavigation: true,
+      defaultLangFunction,
     }),
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
