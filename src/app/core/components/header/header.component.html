@@ -43,13 +43,12 @@
           </a>
           <ul *dropdownMenu aria-labelledby="navbarDropdown" class="dropdown-menu">
             <li *ngFor="let locale of locales">
-              <a
+              <button
+                type="button"
                 class="dropdown-item"
-                queryParamsHandling="merge"
-                routerLink="/{{locale}}/{{currentUrl}}"
-                routerLinkActive="active">
+                (click)="changeLang(locale)">
                 {{locale}}
-              </a>
+              </button>
             </li>
           </ul>
         </li>

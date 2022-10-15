@@ -4,5 +4,7 @@
   "FEATURE_WORKS": "feature works",
   "HOMEPAGE": "homepage",
   "FEATURE": "feature",
-  "CHANGE_LANGUAGE": "change language"
+  "CHANGE_LANGUAGE": "change language",
+  "ROUTES.home": "home",
+  "ROUTES.feature": "feature"
 }

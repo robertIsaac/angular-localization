@@ -4,5 +4,7 @@
   "FEATURE": "FONCTIONNALITÉ",
   "HOMEPAGE_WORKS": "page d'accueil fonctionne",
   "FEATURE_WORKS": "fonctionnalité fonctionne",
-  "CHANGE_LANGUAGE": "changer de langue"
+  "CHANGE_LANGUAGE": "changer de langue",
+  "ROUTES.home": "page d'accueil",
+  "ROUTES.feature": "FONCTIONNALITÉ"
 }

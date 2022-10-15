@@ -4,5 +4,7 @@
   "FEATURE": "ميزة",
   "HOMEPAGE_WORKS": "الصفحة الرئيسية تشتغل",
   "FEATURE_WORKS": "الميزة تشتغل",
-  "CHANGE_LANGUAGE": "غير اللغة"
+  "CHANGE_LANGUAGE": "غير اللغة",
+  "ROUTES.home": "الصفحة الرئيسية",
+  "ROUTES.feature": "ميزة"
 }
