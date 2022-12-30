@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, BrowserTransferStateModule, TransferState } from '@angular/platform-browser';
+import { BrowserModule, TransferState } from '@angular/platform-browser';
 import { AppRoutingModule, routes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './core/components/header/header.component';
@@ -23,7 +23,6 @@ import { Location } from '@angular/common';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    BrowserTransferStateModule,
     CollapseModule.forRoot(),
     BsDropdownModule.forRoot(),
     TranslateModule.forRoot({
