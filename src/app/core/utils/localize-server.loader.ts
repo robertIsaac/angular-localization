@@ -38,7 +38,7 @@ export class LocalizeServerLoader extends LocalizeParser {
         'assets',
         'locales.json',
       );
-      const data: any = JSON.parse(fs.readFileSync(assetsFolder, 'utf8'));
+      const data = JSON.parse(fs.readFileSync(assetsFolder, 'utf8'));
 
       // Here we save the locales in the transfer-state
       const key: StateKey<number> = makeStateKey<number>(
