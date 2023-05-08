@@ -1,11 +1,15 @@
 import { Component, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
+import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './core/components/header/header.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  standalone: true,
+  imports: [HeaderComponent, RouterOutlet],
 })
 export class AppComponent {
   constructor(
