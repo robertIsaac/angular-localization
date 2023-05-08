@@ -1,4 +1,4 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { APP_INITIALIZER, ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideClientHydration } from '@angular/platform-browser';
 import { routes } from './app.routes';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -9,6 +9,7 @@ import { localizeBrowserLoaderFactory } from './core/utils/localize-browser.load
 import { Location } from '@angular/common';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withDisabledInitialNavigation } from '@angular/router';
+import { initializeDirectionFactory } from './core/utils/initialize-direction.factory';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -32,5 +33,10 @@ export const appConfig: ApplicationConfig = {
     })),
     provideAnimations(),
     provideHttpClient(),
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeDirectionFactory,
+      multi: true,
+    },
   ],
 };
