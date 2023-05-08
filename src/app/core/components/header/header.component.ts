@@ -1,12 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalizeRouterService } from '@gilsdav/ngx-translate-router';
-import { NavigationEnd, Router } from '@angular/router';
+import { LocalizeRouterModule, LocalizeRouterService } from '@gilsdav/ngx-translate-router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { TranslateModule } from '@ngx-translate/core';
+import { NgFor } from '@angular/common';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  standalone: true,
+  imports: [RouterLink, CollapseModule, RouterLinkActive, BsDropdownModule, NgFor, TranslateModule, LocalizeRouterModule],
 })
 export class HeaderComponent implements OnInit {
   isCollapsed = true;

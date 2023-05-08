@@ -14,10 +14,7 @@ import { localizeBrowserLoaderFactory } from './core/utils/localize-browser.load
 import { Location } from '@angular/common';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,6 +38,7 @@ import { Location } from '@angular/common';
       },
       initialNavigation: true,
     }),
+    HeaderComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

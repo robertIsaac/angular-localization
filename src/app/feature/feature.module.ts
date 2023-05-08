@@ -4,12 +4,10 @@ import { FeatureComponent } from './feature.component';
 import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-    FeatureComponent,
-  ],
   imports: [
     SharedModule,
     FeatureRoutingModule,
+    FeatureComponent,
   ],
 })
 export class FeatureModule {
