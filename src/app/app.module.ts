@@ -19,7 +19,7 @@ import { Location } from '@angular/common';
     HeaderComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({appId: 'serverApp'}),
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
