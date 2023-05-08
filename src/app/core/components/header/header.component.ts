@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { LocalizeRouterModule, LocalizeRouterService } from '@gilsdav/ngx-translate-router';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -14,17 +14,16 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
   standalone: true,
   imports: [RouterLink, CollapseModule, RouterLinkActive, BsDropdownModule, NgFor, TranslateModule, LocalizeRouterModule],
 })
-export class HeaderComponent implements OnInit {
-  isCollapsed = true;
-  locales = this.localizeRouterService.parser.locales;
-  currentUrl = '';
+export class HeaderComponent {
+  private readonly localizeRouterService = inject(LocalizeRouterService);
+  private readonly router = inject(Router);
 
-  constructor(
-    private localizeRouterService: LocalizeRouterService,
-    private router: Router,
-  ) { }
+  protected readonly locales = this.localizeRouterService.parser.locales;
 
-  ngOnInit(): void {
+  protected isCollapsed = true;
+  protected currentUrl = '';
+
+  constructor() {
     this.setCurrentUrl();
 
     this.router.events.pipe(
