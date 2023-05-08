@@ -1,5 +1,5 @@
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule, routes } from './app-routing.module';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -13,6 +13,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideClientHydration(),
     importProvidersFrom(BrowserModule, AppRoutingModule, CollapseModule.forRoot(), BsDropdownModule.forRoot(), TranslateModule.forRoot({
       defaultLanguage: 'en',
       loader: {
