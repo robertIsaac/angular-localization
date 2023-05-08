@@ -8,5 +8,5 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   imports: [TranslateModule],
 })
-export class HomeComponent {
+export default class HomeComponent {
 }
