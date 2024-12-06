@@ -30,7 +30,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "bootstrap": "^5.2.3",
-    "express": "^4.21.1",
+    "express": "^4.21.2",
     "ngx-bootstrap": "^10.2.0",
     "rxjs": "^7.6.0",
     "tslib": "^2.5.0",
