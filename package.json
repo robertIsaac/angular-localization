@@ -22,7 +22,7 @@
     "@angular/forms": "^16.0.0",
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
-    "@angular/platform-server": "^16.0.0",
+    "@angular/platform-server": "^18.2.14",
     "@angular/router": "^16.0.0",
     "@gilsdav/ngx-translate-router": "^6.1.0",
     "@gilsdav/ngx-translate-router-http-loader": "^2.0.0",
